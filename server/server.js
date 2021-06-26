@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
   res.send("ysnbulut");
   //console.log(res.json({ sa: "hi" }));
 });
-
+// SELAMMMMMMMMM
 mongoose
   .connect("mongodb://localhost:27017/test", {
     useNewUrlParser: true,
