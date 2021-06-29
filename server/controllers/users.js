@@ -33,10 +33,13 @@ const getUser = async (req, res) => {
       if (await bcrypt.compare(password, getUser.password)) {
         const token = jwt.sign(
           { id: getUser._id, username: username },
-          process.env.M_CONNECTION_URL
+          process.env.ENCRYPT_KEY
         );
-        console.log(token);
-        res.status(200).send(getUser);
+        const response = {
+          username: getUser.username,
+          Authtoken: token,
+        };
+        res.status(200).send(response);
       } else {
         res.status(400).send({ message: "Password Hatalı!" });
       }
