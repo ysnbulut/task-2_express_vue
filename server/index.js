@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const cors = require("cors");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const router = require("./routes/router");
@@ -9,6 +10,7 @@ dotenv.config();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("ysnbulut");
